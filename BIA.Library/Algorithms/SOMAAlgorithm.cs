@@ -58,11 +58,14 @@ namespace BIA.Library.Algorithms
                     {
                         parameters[j] = Population[i].Parameters[j] + (leader.Parameters[j] - Population[i].Parameters[j]) * t * pertVector[j];
                     }
-                    Points.Individual newIndividual = new Points.Individual { Parameters = parameters, Fitness = func.CostFunction(parameters) };
+                    Points.Individual newIndividual = new Points.Individual { Parameters = parameters};
                     PopulationManager.CheckBounds(newIndividual, func);
+                    newIndividual.Fitness = func.CostFunction(parameters);
+
                     jumps.Add(newIndividual);
                     t += step;
                 }
+                jumps.Add(Population[i]);
                 var bestJumper = GetBestIndividual(jumps);
                 newPopulation.Add(bestJumper);
                 jumps.Clear();

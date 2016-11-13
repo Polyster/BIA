@@ -23,7 +23,7 @@ namespace BIA.GUI.Views
             maxMigrationBox.Text = MaxGenerations.ToString();
             stepBox.Text = Step.ToString();
             pathLengthBox.Text = PathLength.ToString();
-            perturbationBox.Text = perturbationBox.ToString();
+            perturbationBox.Text = Perturbation.ToString();
         }
 
         private void updateButton_Click(object sender, EventArgs e)
@@ -32,6 +32,7 @@ namespace BIA.GUI.Views
             Step = float.Parse(stepBox.Text);
             PathLength = float.Parse(pathLengthBox.Text);
             Perturbation = float.Parse(perturbationBox.Text);
+            this.Close();
         }
     }
 }

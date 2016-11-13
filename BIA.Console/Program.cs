@@ -19,11 +19,11 @@ namespace BIA.Console
             float[] lowBound = new float[] { -500f, -500f, -500f, -500f, -500f, -500f, -500f, -500f, -500f, -500f };
             AbstractFunction function = new SchwefelsFunction( lowBound, highBound );
 
-            PopulationManager popManager = new PopulationManager( 2 );
-            var population = popManager.GeneratePopulation( function, 20 );
+            PopulationManager popManager = new PopulationManager( 10 );
+            var population = popManager.GeneratePopulation( function, 30 );
 
             //AbstractAlgorithm algorithm = new DifferentialEvolutionAlgorithm( 305, 0.5f, 0.8f );
-            AbstractAlgorithm algorithm = new SOMAAlgorithm(5, 3f, 0.3f, 0.3f);
+            AbstractAlgorithm algorithm = new SOMAAlgorithm(305, 3f, 0.3f, 0.3f);
 
             algorithm.PopulationManager = popManager;
             algorithm.Population = population.Select( x => (Individual)x.Clone() ).ToList();
@@ -32,7 +32,7 @@ namespace BIA.Console
             while ( !algorithm.IsFinnished )
             {
                 algorithm.Execute( function );
-                //if (generation % 5 == 0)
+                if (generation % 5 == 0)
                 {
                     var best = algorithm.GetBestIndividual(algorithm.Population).Fitness;
                     System.Console.WriteLine(best);
