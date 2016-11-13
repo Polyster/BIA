@@ -29,9 +29,7 @@ namespace BIA.Library.Algorithms
 
         public override void Execute(AbstractFunction func)
         {
-            var best = (from individual in Population
-                        where individual.Fitness == Population.Min(x => x.Fitness)
-                        select individual ).First();
+            var best = GetBestIndividual(Population);
             var population = PopulationManager.GeneratePopulation(func, Population.Count-1);
             population.Add( best );
             Population = population;

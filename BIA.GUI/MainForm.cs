@@ -212,7 +212,7 @@ namespace BIA.GUI
                 case 3:
                     Views.SomaView somaView = new Views.SomaView();
                     somaView.Show();
-                    selectedAlgorithm = new SOMAAlgorithm( 3f, 0.3f, 0.3f );
+                    selectedAlgorithm = new SOMAAlgorithm(100, 3f, 0.3f, 0.3f );
                     break;
 
             }
