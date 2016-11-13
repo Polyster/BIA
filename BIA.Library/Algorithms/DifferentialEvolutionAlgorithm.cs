@@ -46,18 +46,16 @@ namespace BIA.Library.Algorithms
             for ( int i = 0; i < Population.Count; i++ )
             {
                 var randomInstances = PickRandomInstancies( Population );
-                Individual original = randomInstances[0];
+                Individual original = Population[i];
                 Individual candidate = (Individual)original.Clone();
 
                 Individual a = randomInstances[1];
                 Individual b = randomInstances[2];
                 Individual c = randomInstances[3];
 
-                int R = rand.Next( 0, PopulationManager.Dimension );
-
                 for ( int j = 0; j < PopulationManager.Dimension; j++ )
                 {
-                    if ( rand.NextDouble() <= CR || i == R )
+                    if ( rand.NextDouble() <= CR )
                     {
                         candidate.Parameters[j] = a.Parameters[j] + ( F * ( b.Parameters[j] - c.Parameters[j] ) );
                     }
@@ -85,11 +83,11 @@ namespace BIA.Library.Algorithms
 
             for ( int i = 0; i < 4; i++ )
             {
-                while ( true )
+                while (true)
                 {
                     int randomIndex = rand.Next( data.Count );
                     var randomVector = data[randomIndex];
-                    if ( !randomInstancies.Contains( randomVector ) )
+                    if (!randomInstancies.Contains(randomVector))
                     {
                         randomInstancies.Add( randomVector );
                         break;

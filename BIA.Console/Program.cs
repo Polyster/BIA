@@ -20,10 +20,10 @@ namespace BIA.Console
             AbstractFunction function = new SchwefelsFunction( lowBound, highBound );
 
             PopulationManager popManager = new PopulationManager( 10 );
-            var population = popManager.GeneratePopulation( function, 30 );
+            var population = popManager.GeneratePopulation( function, 40 );
 
-            //AbstractAlgorithm algorithm = new DifferentialEvolutionAlgorithm( 305, 0.5f, 0.8f );
-            AbstractAlgorithm algorithm = new SOMAAlgorithm(305, 3f, 0.3f, 0.3f);
+            AbstractAlgorithm algorithm = new DifferentialEvolutionAlgorithm(305, 0.5f, 0.8f);
+            //AbstractAlgorithm algorithm = new SOMAAlgorithm(305, 3f, 0.3f, 0.3f);
 
             algorithm.PopulationManager = popManager;
             algorithm.Population = population.Select( x => (Individual)x.Clone() ).ToList();
