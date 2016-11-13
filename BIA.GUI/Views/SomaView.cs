@@ -12,9 +12,26 @@ namespace BIA.GUI.Views
 {
     public partial class SomaView : Form
     {
+        public int MaxGenerations = 100;
+        public float Step = 0.3f;
+        public float PathLength = 3f;
+        public float Perturbation = 0.3f;
         public SomaView()
         {
             InitializeComponent();
+
+            maxMigrationBox.Text = MaxGenerations.ToString();
+            stepBox.Text = Step.ToString();
+            pathLengthBox.Text = PathLength.ToString();
+            perturbationBox.Text = perturbationBox.ToString();
+        }
+
+        private void updateButton_Click(object sender, EventArgs e)
+        {
+            MaxGenerations = int.Parse(maxMigrationBox.Text);
+            Step = float.Parse(stepBox.Text);
+            PathLength = float.Parse(pathLengthBox.Text);
+            Perturbation = float.Parse(perturbationBox.Text);
         }
     }
 }

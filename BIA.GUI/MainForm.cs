@@ -205,14 +205,14 @@ namespace BIA.GUI
                     selectedAlgorithm = new SimulatedAnnealingAlgorithm(simAnnealingView.Temperature, simAnnealingView.FinalTemp, simAnnealingView.Radius);
                     break;
                 case 2:
-                    Views.DifferentialEvolutionView difEvolutionView = new Views.DifferentialEvolutionView();
-                    difEvolutionView.Show();
-                    selectedAlgorithm = new DifferentialEvolutionAlgorithm( difEvolutionView.Generations, difEvolutionView.CR, difEvolutionView.F );
+                    Views.DifferentialEvolutionView diffEvolutionView = new Views.DifferentialEvolutionView();
+                    diffEvolutionView.Show();
+                    selectedAlgorithm = new DifferentialEvolutionAlgorithm( diffEvolutionView.Generations, diffEvolutionView.CR, diffEvolutionView.F );
                     break;
                 case 3:
                     Views.SomaView somaView = new Views.SomaView();
                     somaView.Show();
-                    selectedAlgorithm = new SOMAAlgorithm(100, 3f, 0.3f, 0.3f );
+                    selectedAlgorithm = new SOMAAlgorithm(somaView.MaxGenerations, somaView.PathLength, somaView.Step, somaView.Perturbation );
                     break;
 
             }

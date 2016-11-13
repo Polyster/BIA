@@ -92,6 +92,9 @@
     <EmbeddedResource Include="Views\SimulatedAnnealingView.resx">
       <DependentUpon>SimulatedAnnealingView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\SomaView.resx">
+      <DependentUpon>SomaView.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
