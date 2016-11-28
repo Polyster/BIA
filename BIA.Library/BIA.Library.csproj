@@ -44,6 +44,7 @@
     <Compile Include="Algorithms\AbstractAlgorithm.cs" />
     <Compile Include="Algorithms\BlindSearchAlgorithm.cs" />
     <Compile Include="Algorithms\DifferentialEvolutionAlgorithm.cs" />
+    <Compile Include="Algorithms\EvolutionaryStrategyAlgorithm.cs" />
     <Compile Include="Algorithms\SimulatedAnnealingAlgorithm.cs" />
     <Compile Include="Algorithms\SOMAAlgorithm.cs" />
     <Compile Include="Functions\AbstractFunction.cs" />

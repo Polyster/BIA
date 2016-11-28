@@ -26,7 +26,7 @@ namespace BIA.Library.Functions.Multimodal
             float result = 0f;
             for ( int i = 0; i < parameters.Length - 1; i++ )
             {
-                result += (float)( ( 1 / Math.Pow( Math.E, 5 ) ) * Math.Sqrt( parameters[i] * parameters[i] + parameters[i + 1] * parameters[i + 1] ) + 3 * ( Math.Cos( 2 * parameters[i] ) + Math.Sin( 2 * parameters[i + 1] ) ) );
+                result += (float)( ( 1 / Math.E ) * Math.Sqrt( parameters[i] * parameters[i] + parameters[i + 1] * parameters[i + 1] ) + 3 * ( Math.Cos( 2 * parameters[i] ) + Math.Sin( 2 * parameters[i + 1] ) ) );
             }
             return result;
         }

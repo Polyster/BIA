@@ -12,7 +12,7 @@ namespace BIA.GUI.Views
 {
     public partial class SomaView : Form
     {
-        public int MaxGenerations = 100;
+        public int MaxGenerations = 200;
         public float Step = 0.3f;
         public float PathLength = 3f;
         public float Perturbation = 0.3f;

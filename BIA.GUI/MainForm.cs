@@ -61,6 +61,7 @@ namespace BIA.GUI
             algorithmBox.Items.Add( "Simulated annealing" );
             algorithmBox.Items.Add( "Differential evolution" );
             algorithmBox.Items.Add( "SOMA" );
+            algorithmBox.Items.Add( "Evolutionary strategy algorithm" );
         }
         private void DrawFunction(AbstractFunction function, float xmin, float xmax, float ymin, float ymax)
         {
@@ -213,6 +214,11 @@ namespace BIA.GUI
                     Views.SomaView somaView = new Views.SomaView();
                     somaView.Show();
                     selectedAlgorithm = new SOMAAlgorithm(somaView.MaxGenerations, somaView.PathLength, somaView.Step, somaView.Perturbation );
+                    break;
+                case 4:
+                    Views.EvolutionaryStrategyView evoView = new Views.EvolutionaryStrategyView();
+                    evoView.Show();
+                    selectedAlgorithm = new EvolutionaryStrategyAlgorithm(evoView.MaxGenerations,evoView.Mutants, evoView.ESVersion, evoView.StdDeviation);
                     break;
 
             }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using BIA.Library.Functions;
+using BIA.Library.Points;
 
 namespace BIA.Library.Algorithms
 {
@@ -43,8 +44,8 @@ namespace BIA.Library.Algorithms
 
         public override void Execute(AbstractFunction func)
         {
-            List<Points.Individual> jumps = new List<Points.Individual>();
-            List<Points.Individual> newPopulation = new List<Points.Individual>();
+            List<Individual> jumps = new List<Individual>();
+            List<Individual> newPopulation = new List<Individual>();
             var leader = GetBestIndividual(Population);
             Population.Remove(leader);
             newPopulation.Add(leader);
@@ -58,7 +59,7 @@ namespace BIA.Library.Algorithms
                     {
                         parameters[j] = Population[i].Parameters[j] + (leader.Parameters[j] - Population[i].Parameters[j]) * t * pertVector[j];
                     }
-                    Points.Individual newIndividual = new Points.Individual { Parameters = parameters};
+                    Individual newIndividual = new Individual { Parameters = parameters};
                     PopulationManager.CheckBounds(newIndividual, func);
                     newIndividual.Fitness = func.CostFunction(parameters);
 
