@@ -73,10 +73,12 @@ namespace BIA.Library.Algorithms
             tmp.Parameters = new float[parent.Parameters.Length];
             for (int i = 0; i < parent.Parameters.Length; i++)
             {
-                tmp.Parameters[i] = vector[i] + parent.Parameters[i];
+                tmp.Parameters[i] = PopulationManager.DSHVaules ? (int)vector[i] + parent.Parameters[i]
+                                                                : vector[i] + parent.Parameters[i];
             }
             PopulationManager.CheckBounds(tmp, func);
-            tmp.Fitness = func.CostFunction(tmp.Parameters);
+            tmp.Fitness = PopulationManager.DSHVaules ? (int)func.CostFunction(tmp.Parameters)
+                                                      : func.CostFunction(tmp.Parameters);
             return tmp;
         }
         private double NextGaussian(double mu, double sigma)

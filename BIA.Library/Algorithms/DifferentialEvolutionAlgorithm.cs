@@ -57,7 +57,8 @@ namespace BIA.Library.Algorithms
                 {
                     if ( rand.NextDouble() <= CR )
                     {
-                        candidate.Parameters[j] = a.Parameters[j] + ( F * ( b.Parameters[j] - c.Parameters[j] ) );
+                        candidate.Parameters[j] = PopulationManager.DSHVaules ? (int) a.Parameters[j] + (int)(F * (b.Parameters[j] - c.Parameters[j]))
+                                                                              : a.Parameters[j] + (F * (b.Parameters[j] - c.Parameters[j]));
                     }
                 }
                 PopulationManager.CheckBounds( candidate, func );

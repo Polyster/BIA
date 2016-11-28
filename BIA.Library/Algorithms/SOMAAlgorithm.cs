@@ -57,11 +57,13 @@ namespace BIA.Library.Algorithms
                     float[] parameters = new float[PopulationManager.Dimension];
                     for (int j = 0; j < PopulationManager.Dimension; j++)
                     {
-                        parameters[j] = Population[i].Parameters[j] + (leader.Parameters[j] - Population[i].Parameters[j]) * t * pertVector[j];
+                        parameters[j] = PopulationManager.DSHVaules ? (int) Population[i].Parameters[j] + (leader.Parameters[j] - Population[i].Parameters[j]) * t * pertVector[j]
+                                                                    : Population[i].Parameters[j] + (leader.Parameters[j] - Population[i].Parameters[j]) * t * pertVector[j];
                     }
                     Individual newIndividual = new Individual { Parameters = parameters};
                     PopulationManager.CheckBounds(newIndividual, func);
-                    newIndividual.Fitness = func.CostFunction(parameters);
+                    newIndividual.Fitness = PopulationManager.DSHVaules ? (int)func.CostFunction(parameters)
+                                                                        : func.CostFunction(parameters);
 
                     jumps.Add(newIndividual);
                     t += step;
